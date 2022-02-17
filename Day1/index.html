@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+    <title>Day 01 - Product Card</title>
+    <style>
+        * {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: linear-gradient(to right, #55bd55, #2ebeab);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .card {
+            background: #34495e;
+            border-radius: 10px;
+            position: relative;
+            padding: 20px;
+            height: 350px;
+            text-align: center;
+            transition: .5s;
+        }
+        
+        .card * {
+            transition: .5s;
+        }
+        
+        .card img {
+            width: 250px;
+            padding-right: 20px;
+        }
+        
+        .card .title {
+            color: #4cd14c;
+            margin: 0;
+        }
+        
+        .card .price {
+            font-weight: 600;
+            font-size: 26px;
+            transition: 0.5s;
+            text-align: center;
+            display: block;
+        }
+        
+        .card:hover img {
+            transform: rotate(-15deg) translateY(-70px);
+        }
+        
+        .card:hover .title {
+            transform: translate(-35px, -50px)
+        }
+        
+        .card:hover .price {
+            transform: translate(-110px, -50px);
+        }
+        
+        .card:hover .info {
+            bottom: 25px;
+            opacity: 1;
+        }
+        /* Icon */
+        
+        i {
+            font-size: 30px;
+            position: absolute;
+            top: 0;
+            margin: 20px;
+        }
+        
+        .bx-heart {
+            left: 0;
+        }
+        
+        .bx-cart-alt {
+            right: 0;
+        }
+        /* Info */
+        
+        .info {
+            font-size: 20px;
+            position: absolute;
+            bottom: -100px;
+            opacity: 0;
+        }
+        
+        .info input,
+        .info button {
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+        
+        .info input {
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+        
+        .info span {
+            margin-right: 20px;
+        }
+        
+        .color {
+            display: flex;
+            align-items: center;
+        }
+        
+        .color .circle {
+            border-radius: 50% !important;
+            width: 20px;
+            height: 20px;
+        }
+        
+        .circle.green {
+            background: green;
+        }
+        
+        .circle.red {
+            background: red;
+        }
+        
+        .circle.black {
+            background: black;
+        }
+        
+        .action {
+            text-align: left;
+        }
+        
+        .action button {
+            background: rgb(100, 238, 100);
+            color: #fff;
+            border: none;
+            border-radius: 5px
+        }
+        
+        .action button:hover {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="item">
+            <i class="bx bx-heart"></i>
+            <i class="bx bx-cart-alt"></i>
+            <img src="Nike Zoom KD 12.png" alt="">
+            <h2 class="title">Nike Zoom KD 12</h2>
+            <span class="price">99$</span>
+        </div>
+        <div class="info">
+            <p class="size">
+                <span>Size:</span>
+                <input type="button" value="6">
+                <input type="button" value="7">
+                <input type="button" value="8">
+                <input type="button" value="9">
+            </p>
+            <p class="color">
+                <span>Color:</span>
+                <input type="button" class="circle green">
+                <input type="button" class="circle red">
+                <input type="button" class="circle black">
+            </p>
+            <div class="action">
+                <button>Buy now</button>
+                <button>Add cart</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

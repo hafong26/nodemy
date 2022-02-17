@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .start {
+            background: lime;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .start button {
+            background: yellow;
+            font-size: 50px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            width: 400px;
+            padding: 15px;
+        }
+        
+        .number {
+            font-size: 100px;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            border-radius: 50%;
+            animation: wave 1s linear infinite;
+            color: #fff;
+            background: #fff2;
+            margin-bottom: 50px;
+            padding: 30px;
+        }
+        
+        @keyframes wave {
+            0%,
+            100% {
+                box-shadow: 0 0 10px #fff;
+            }
+            50% {
+                box-shadow: 0 0 30px #fff;
+            }
+        }
+        
+        .more {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .more div {
+            margin: 30px;
+            width: 350px;
+        }
+        
+        .more div * {
+            font-size: 40px;
+            width: 100%;
+            margin: 0;
+            width: 350px;
+        }
+        
+        .more div h2 {
+            background: black;
+            color: white;
+        }
+        
+        .more div p {
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <audio src="https://data3.chiasenhac.com/downloads/2105/4/2104746/128/Cham%20Day%20Noi%20Dau%20-%20Erik.mp3"></audio>
+    <div class="start">
+        <button>Press any key</button>
+    </div>
+    <div class="number">
+        ...
+    </div>
+    <div class="more">
+        <div>
+            <h2>Key</h2>
+            <p>...</p>
+        </div>
+        <div>
+            <h2>Location</h2>
+            <p>...</p>
+        </div>
+        <div>
+            <h2>Which</h2>
+            <p>...</p>
+        </div>
+        <div>
+            <h2>Code</h2>
+            <p>...</p>
+        </div>
+    </div>
+    <script>
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+        const start = $('.start');
+
+        const num = $('.number')
+        const ss = $$('p')
+
+        window.onkeydown = function(e) {
+            console.log(e)
+            $('audio').play()
+            start.remove()
+            num.innerText = e.which
+            ss[0].innerText = e.key
+            ss[1].innerText = e.location
+            ss[2].innerText = e.which
+            ss[3].innerText = e.code
+
+        }
+    </script>
+</body>
+
+</html>

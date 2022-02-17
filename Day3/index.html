@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 03</title>
+    <style>
+        body {
+            background: linear-gradient(90deg, #ad5389, #3c1053);
+            font-family: arial;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        button {
+            border-radius: 15px;
+            padding: 1em 5em;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .modal__dialog {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: 0.5s;
+            opacity: 0;
+        }
+        
+        .modal.active .modal__dialog {
+            top: 50%;
+            opacity: 1;
+            display: block;
+        }
+        
+        header {
+            background: tomato;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        
+        header i {
+            cursor: pointer;
+            font-size: 30px;
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+        }
+        
+        main {
+            padding: 0 15px;
+        }
+        
+        main h2,
+        main p {
+            margin: 10px 0;
+        }
+        
+        footer {
+            padding: 15px;
+            text-align: right;
+        }
+        
+        footer button {
+            background: tomato;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="Show()">
+        <h1>Open Modal</h1>
+    </button>
+    <div class="modal">
+        <div class="modal__dialog">
+            <header>
+                <span>Welcome to VietNam</span>
+                <i onclick="Close()">&times</i>
+            </header>
+            <main>
+                <h2>Abcxyz</h2>
+                <p>Nhom chat sex uy tin viet nam...</p>
+            </main>
+            <footer>
+                <button onclick="Close()">Đóng</button>
+            </footer>
+        </div>
+    </div>
+    <script>
+        var modal = document.querySelector('.modal');
+
+        function Show() {
+            modal.classList.add('active')
+        }
+
+        function Close() {
+            modal.classList.remove('active')
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(45deg, #654ea3, #eaafc8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        h2 {
+            margin: 5px;
+        }
+        
+        .container {
+            padding: 30px;
+            background: #fff;
+            width: 95%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        
+        section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #000;
+        }
+        
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .list div {
+            padding: 10px 35px 10px 10px;
+            margin: 5px;
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+            background: #ffc0da;
+        }
+        
+        .list div:hover {
+            background: #654ea3;
+            color: #fff;
+        }
+        
+        .list div i {
+            font-size: 30px;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            font-family: arial;
+        }
+        
+        input {
+            border: none;
+            outline: none;
+            font-size: 25px;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 10px;
+            background: none;
+        }
+        
+        button {
+            background: #654ea3;
+            color: #fff;
+            width: 120px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container br-10">
+        <h2>Search Tags</h2>
+        <section>
+            <div class="list">
+                <div>
+                    <span>nodejs</span>
+                    <i>&times</i>
+                </div>
+                <div>
+                    <span>reactjs</span>
+                    <i>&times</i>
+                </div>
+            </div>
+            <input type="text" placeholder="Type and enter">
+        </section>
+        <button>Remove All</button>
+    </div>
+    <script>
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+        const input = $('input');
+        const list = $('.list');
+        const btn = $('button')
+        var ii = $$('i')
+        input.onkeydown = function(e) {
+
+            if (e.key == 'Enter' && input.value != '') {
+                ii = $$('i')
+                console.log(ii.length)
+                list.innerHTML += `
+                                <div>
+                                    <span>${input.value}</span>
+                                    <i>&times</i>
+                                </div>
+                                `
+                input.value = ''
+            }
+
+        }
+        btn.onclick = function() {
+            console.log((ii.length - 1).innerText)
+        }
+        ii.forEach(function(i, index) {
+            i.onclick = function() {
+                console.log(index)
+                console.log(i.parentNode)
+                i.parentNode.remove()
+
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/7.jpg" type="image/x-icon">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(30deg, red, blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        
+        img {
+            user-select: none;
+        }
+        
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .gallery>div {
+            width: 400px;
+            height: 200px;
+            overflow: hidden;
+            margin: 5px;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            transition: .5s;
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.5);
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gallery">
+        <div>
+            <img src="img/1.jpg" alt="">
+        </div>
+        <div>
+            <img src="img/2.jpg" alt="">
+        </div>
+
+        <div>
+            <img src="img/3.jpg" alt="">
+        </div>
+
+        <div>
+            <img src="img/4.jpg" alt="">
+        </div>
+
+        <div>
+            <img src="img/5.jpg" alt="">
+        </div>
+
+        <div>
+            <img src="img/6.jpg" alt="">
+        </div>
+
+        <div>
+            <img src="img/7.jpg" alt="">
+        </div>
+        <div>
+            <img src="img/8.jpg" alt="">
+        </div>
+    </div>
+    <div class="show">
+        <img src="img/1.jpg">
+        <i class="fas fa-chevron-left left"></i>
+        <i class="fas fa-times close"></i>
+        <i class="fas fa-chevron-right right"></i>
+    </div>
+    <style>
+        .show {
+            background: #222;
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .5s;
+            width: 0;
+            height: 0;
+            opacity: 0;
+            top: 0;
+            left: 0;
+        }
+        
+        .show.active {
+            width: 100%;
+            height: 100vh;
+            opacity: 1;
+        }
+        
+        .show img {
+            width: 70%;
+        }
+        
+        .show i {
+            position: absolute;
+            color: #fff;
+            font-size: 100px;
+        }
+        
+        .show i.hide {
+            display: none;
+        }
+        
+        .show i:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        
+        .show i:nth-of-type(1) {
+            left: 30px;
+        }
+        
+        .show i:nth-of-type(2) {
+            right: 30px;
+            top: 30px;
+            font-size: 50px;
+        }
+        
+        .show i:nth-of-type(3) {
+            right: 30px;
+        }
+        
+        @media (max-width:800px) {
+            .show img {
+                width: 100%;
+            }
+            .show i {
+                font-size: 30px;
+            }
+        }
+    </style>
+    <script>
+        const $ = document.querySelector.bind(document)
+        const $$ = document.querySelectorAll.bind(document)
+
+        const show = $('.show')
+        const show_img = $('.show img')
+
+        const imgs = $$('.gallery div')
+
+        const left = $('.left')
+        const close = $('.close')
+        const right = $('.right')
+
+        const app = {
+            currentIndex: 0,
+            render: function() {
+                show_img.src = `./img/${this.currentIndex + 1}.jpg`
+                left.classList.remove('hide')
+                right.classList.remove('hide')
+                if (this.currentIndex == 0)
+                    left.classList.add('hide')
+                if (this.currentIndex == imgs.length - 1)
+                    right.classList.add('hide')
+
+            },
+            handleEvents: function() {
+                const _this = this;
+                // Close
+                close.onclick = function() {
+                    show.classList.remove('active')
+                }
+                imgs.forEach(function(img, index) {
+                    img.onclick = function() {
+
+                        _this.currentIndex = index
+                        show.classList.add('active')
+
+                        _this.render()
+
+                    }
+                });
+                // Left
+                left.onclick = function() {
+                    if (_this.currentIndex > 0) {
+                        _this.currentIndex--;
+                        _this.render();
+                    }
+                };
+                // Right
+                right.onclick = function() {
+                    if (_this.currentIndex < imgs.length - 1) {
+                        _this.currentIndex++;
+                        _this.render();
+                    }
+                }
+            },
+            start: function() {
+                this.handleEvents()
+            }
+        }
+        app.start()
+    </script>
+</body>
+
+</html>

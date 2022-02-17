@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+    <title>Day 02</title>
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            margin: 0;
+        }
+        
+        body {
+            background: linear-gradient(90deg, #00F260, #0575E6);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .card {
+            background: #222;
+            width: 300px;
+            height: 400px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 30px;
+            overflow: hidden;
+        }
+        
+        .card__img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-top: 20px;
+            border: 4px solid tomato;
+            transition: .3s;
+        }
+        
+        .card__img:hover {
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            margin: 0;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .card__name {
+            margin-bottom: 10px;
+        }
+        
+        .card__offer {
+            color: tomato;
+        }
+        
+        .card__social {
+            margin: 25px 0;
+        }
+        
+        .card__social i {
+            font-size: 30px;
+            margin: 0 15px;
+        }
+        
+        .card__social i:hover {
+            cursor: pointer;
+            color: tomato;
+        }
+        
+        .card__action {
+            border: 1px solid tomato;
+            background: none;
+            padding: 8px 15px;
+            transition: .5s;
+            border-radius: 10px;
+        }
+        
+        .card__action:hover {
+            background: tomato;
+            border: 1px solid tomato;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <img class="card__img" src="aNam.jpg" alt="">
+        <h2 class="card__name">Nguyen Hao</h2>
+        <span class="card__offer">Fullstack developer</span>
+        <div class="card__social">
+            <i class="bx bxl-facebook"></i>
+            <i class="bx bxl-instagram-alt"></i>
+            <i class="bx bxl-twitter"></i>
+            <i class="bx bxl-tiktok"></i>
+        </div>
+        <button class="card__action">Contact me</button>
+    </div>
+    <div class="card">
+        <img class="card__img" src="aNam.jpg" alt="">
+        <h2 class="card__name">Nguyen Hao</h2>
+        <span class="card__offer">Fullstack developer</span>
+        <div class="card__social">
+            <i class="bx bxl-facebook"></i>
+            <i class="bx bxl-instagram-alt"></i>
+            <i class="bx bxl-twitter"></i>
+            <i class="bx bxl-tiktok"></i>
+        </div>
+        <button class="card__action">Contact me</button>
+    </div>
+    <div class="card">
+        <img class="card__img" src="aNam.jpg" alt="">
+        <h2 class="card__name">Nguyen Hao</h2>
+        <span class="card__offer">Fullstack developer</span>
+        <div class="card__social">
+            <i class="bx bxl-facebook"></i>
+            <i class="bx bxl-instagram-alt"></i>
+            <i class="bx bxl-twitter"></i>
+            <i class="bx bxl-tiktok"></i>
+        </div>
+        <button class="card__action">Contact me</button>
+    </div>
+</body>
+
+</html>

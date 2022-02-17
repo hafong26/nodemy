@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(45deg, #f44, #f88);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        form {
+            background: white;
+            text-align: center;
+            width: 95%;
+            max-width: 500px;
+            border-radius: 20px;
+        }
+        
+        input {
+            width: 80%;
+            margin-bottom: 50px;
+            font-size: 20px;
+            padding-bottom: 5px;
+            border: none;
+            border-bottom: 2px solid #aaa;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        input:focus {
+            outline: none;
+            border-bottom: 2px solid red;
+        }
+        
+        button {
+            background: #f77;
+            border: none;
+            color: #fff;
+            width: 70%;
+            border-radius: 99px;
+            font-size: 25px;
+            font-weight: bold;
+            padding: 15px;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h1>Register</h1>
+        <input type="text" placeholder="Username">
+        <input type="text" placeholder="Email">
+        <input type="text" placeholder="Password">
+        <input type="text" placeholder="Confirm Password">
+        <button>Login</button>
+        <p>Not a member? <a href="#">Sign up</a></p>
+    </form>
+</body>
+
+</html>
